@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pré-audit accessibilité — Encyclopédie (démonstration)</title>
+<style>
+  :root{--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--bg:#f9fafb;--brand:#1d4ed8}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+  .page{max-width:900px;margin:0 auto;padding:48px 28px}
+  header.cover{border-bottom:3px solid var(--brand);padding-bottom:22px;margin-bottom:34px}
+  .brand{font-weight:800;color:var(--brand);letter-spacing:.02em;font-size:15px;text-transform:uppercase}
+  h1{font-size:30px;line-height:1.2;margin:14px 0 8px}
+  .sub{color:var(--muted);font-size:15px}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:30px 0}
+  .kpi{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .kpi b{display:block;font-size:26px;line-height:1.1}
+  .kpi span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .notice{background:#fffbeb;border:1px solid #fcd34d;border-radius:12px;padding:18px 20px;margin:26px 0}
+  .notice h2{font-size:15px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+  .notice p{font-size:14px;color:#78350f}
+  h2.sec{font-size:19px;margin:38px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .finding{border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px}
+  .fhead{display:flex;align-items:flex-start;gap:12px;margin-bottom:6px}
+  .fhead h3{font-size:16px}
+  .pill{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+  .fdesc{font-size:14px;color:var(--muted);margin-bottom:12px}
+  .meta{list-style:none;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 20px;margin-bottom:14px}
+  .ex{border-top:1px dashed var(--line);padding-top:12px}
+  .exlab{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px}
+  .ex ul{list-style:none;display:grid;gap:10px}
+  .ex li{background:var(--bg);border-radius:8px;padding:10px 12px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+  code.sel{color:#0f766e;font-weight:600}
+  pre{white-space:pre-wrap;word-break:break-word;color:#374151;margin-top:6px}
+  .why{font-size:12.5px;color:#b91c1c;margin-top:6px;white-space:pre-wrap}
+  .more{font-size:13px;color:var(--muted);margin-top:8px}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  td.url{word-break:break-all;font-size:13px}
+  .badge{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid;white-space:nowrap}
+  footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  @media print{.finding{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="cover">
+    <div class="brand">Agence Démo</div>
+    <h1>Pré-audit d'accessibilité numérique</h1>
+    <p class="sub">Site audité : <b>Encyclopédie (démonstration)</b> · https://fr.wikipedia.org/wiki/Accessibilit%C3%A9_du_web · 07 novembre 2026</p>
+    <p class="sub">Référentiels : RGAA 4.1 et European Accessibility Act (WCAG 2.1 niveaux A et AA)</p>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi"><b>3</b><span>Pages testées</span></div>
+    <div class="kpi"><b>4</b><span>Types de non-conformité</span></div>
+    <div class="kpi"><b>17</b><span>Éléments à corriger</span></div>
+    <div class="kpi"><b>17</b><span>Éléments bloquants ou majeurs</span></div>
+  </div>
+
+  <div class="notice">
+    <h2>Ce que ce document est — et ce qu'il n'est pas</h2>
+    <p>
+      Ceci est un <b>pré-audit automatisé</b>. Il exécute les tests techniques de la norme
+      WCAG 2.1 A/AA avec le moteur axe-core, sur 3 page(s) de votre site.
+      Les tests automatisés couvrent <b>environ un tiers des critères RGAA</b> : ils détectent les
+      erreurs de code objectives, pas la pertinence éditoriale.
+      Ce document <b>ne constitue pas une attestation de conformité RGAA</b> et ne remplace pas un
+      audit réalisé par un expert. Les critères qui exigent un jugement humain sont listés plus bas.
+    </p>
+  </div>
+
+  <h2 class="sec">Non-conformités détectées</h2>
+  
+    <section class="finding">
+      <div class="fhead">
+        <span class="pill" style="background:#dc26261a;color:#dc2626;border-color:#dc262655">Bloquant</span>
+        <h3>Les images doivent avoir une alternative textuelle</h3>
+      </div>
+      <p class="fdesc">Vérifier que les éléments &lt;img&gt; ont une alternative textuelle, ou un rôle de type 'none' ou 'presentation'</p>
+      <ul class="meta">
+        <li><b>1</b> élément(s) concerné(s) sur <b>1</b> page(s)</li>
+        <li>Critère WCAG : <b>1.1.1</b></li>
+        <li>Critère RGAA indicatif : <b>1.1</b></li>
+        <li>Règle technique : <code>image-alt</code></li>
+      </ul>
+      <div class="ex">
+        <p class="exlab">Exemples d'éléments à corriger :</p>
+        <ul>
+          <li><code class="sel">#mwAsU</code><pre>&lt;img resource=&quot;https://fr.wikipedia...&quot; src=&quot;//upload.wikimedia.o...&quot; decoding=&quot;async&quot; loading=&quot;lazy&quot; data-file-width=&quot;240&quot; data-file-height=&quot;320&quot; data-file-type=&quot;bitmap&quot; height=&quot;320&quot; width=&quot;240&quot; class=&quot;mw-file-element&quot; id=&quot;mwAsU&quot;&gt;</pre>
+              <p class="why">Corriger l’un des éléments suivants : 
+  L’élément n’a pas d’attribut alt
+  L’attribut aria-label n’existe pas ou est vide
+  L’attribut aria-labelledby n’existe pas, fait référence à des éléments qui n’existent pas ou à des éléments vides ou non visibles
+  L’élément n’a pas d’attribut title
+  La sémantique par défaut de l’élément n’a pas été remplacée par role=&quot;none&quot; ou role=&quot;presentation&quot;</p></li>
+        </ul>
+        
+      </div>
+    </section>
+    <section class="finding">
+      <div class="fhead">
+        <span class="pill" style="background:#ea580c1a;color:#ea580c;border-color:#ea580c55">Majeur</span>
+        <h3>Les liens doivent avoir un texte perceptible</h3>
+      </div>
+      <p class="fdesc">Vérifier que les liens ont un texte perceptible</p>
+      <ul class="meta">
+        <li><b>9</b> élément(s) concerné(s) sur <b>1</b> page(s)</li>
+        <li>Critère WCAG : <b>2.4.4, 4.1.2</b></li>
+        <li>Critère RGAA indicatif : <b>6.1</b></li>
+        <li>Règle technique : <code>link-name</code></li>
+      </ul>
+      <div class="ex">
+        <p class="exlab">Exemples d'éléments à corriger :</p>
+        <ul>
+          <li><code class="sel">.mw-valign-text-top &gt; .mw-file-description</code><pre>&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Logo_travaux_orange-simple.svg?uselang=fr&quot; class=&quot;mw-file-description&quot;&gt;</pre>
+              <p class="why">Corriger tous les éléments suivants : 
+  L’élément est dans l’ordre de tabulation et n’a pas d’intitulé accessible
+
+Corriger l’un des éléments suivants : 
+  L’élément n’a aucun contenu textuel visible par les lecteurs d’écran
+  L’attribut aria-label n’existe pas ou est vide
+  L’attribut aria-labelledby n’existe pas, fait référence à des éléments qui n’existent pas ou à des éléments vides ou non vi</p></li><li><code class="sel">.mw-halign-center &gt; .mw-file-description</code><pre>&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:2017-fr.wp-orange-source.svg?uselang=fr&quot; class=&quot;mw-file-description&quot;&gt;</pre>
+              <p class="why">Corriger tous les éléments suivants : 
+  L’élément est dans l’ordre de tabulation et n’a pas d’intitulé accessible
+
+Corriger l’un des éléments suivants : 
+  L’élément n’a aucun contenu textuel visible par les lecteurs d’écran
+  L’attribut aria-label n’existe pas ou est vide
+  L’attribut aria-labelledby n’existe pas, fait référence à des éléments qui n’existent pas ou à des éléments vides ou non vi</p></li><li><code class="sel">#mwAsQ</code><pre>&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:BBC_News_web_accessibility_demo.jpg?uselang=fr&quot; class=&quot;mw-file-description&quot; id=&quot;mwAsQ&quot;&gt;</pre>
+              <p class="why">Corriger tous les éléments suivants : 
+  L’élément est dans l’ordre de tabulation et n’a pas d’intitulé accessible
+
+Corriger l’un des éléments suivants : 
+  L’élément n’a aucun contenu textuel visible par les lecteurs d’écran
+  L’attribut aria-label n’existe pas ou est vide
+  L’attribut aria-labelledby n’existe pas, fait référence à des éléments qui n’existent pas ou à des éléments vides ou non vi</p></li><li><code class="sel">#mwA5M</code><pre>&lt;a href=&quot;#cite_ref-ref_auto_1_21-1&quot; data-mw-group=&quot;W3C&quot; id=&quot;mwA5M&quot;&gt;&lt;span class=&quot;mw-linkback-text&quot; id=&quot;mwA5Q&quot;&gt;2&lt;/span&gt;&lt;/a&gt;</pre>
+              <p class="why">Corriger tous les éléments suivants : 
+  L’élément est dans l’ordre de tabulation et n’a pas d’intitulé accessible
+
+Corriger l’un des éléments suivants : 
+  L’élément n’a aucun contenu textuel visible par les lecteurs d’écran
+  L’attribut aria-label n’existe pas ou est vide
+  L’attribut aria-labelledby n’existe pas, fait référence à des éléments qui n’existent pas ou à des éléments vides ou non vi</p></li>
+        </ul>
+        <p class="more">… et 5 autre(s), détaillés dans le fichier JSON joint.</p>
+      </div>
+    </section>
+    <section class="finding">
+      <div class="fhead">
+        <span class="pill" style="background:#ea580c1a;color:#ea580c;border-color:#ea580c55">Majeur</span>
+        <h3>Le contenu textuel des éléments doit aussi se retrouver dans leur intitulé accessible</h3>
+      </div>
+      <p class="fdesc">Vérifier que dans le cas d’éléments identifiés par leur contenu textuel, le texte visible fait partie de l’intitulé accessible</p>
+      <ul class="meta">
+        <li><b>4</b> élément(s) concerné(s) sur <b>3</b> page(s)</li>
+        <li>Critère WCAG : <b>2.5.3</b></li>
+        <li>Critère RGAA indicatif : <b>à préciser par l'auditeur</b></li>
+        <li>Règle technique : <code>label-content-name-mismatch</code></li>
+      </ul>
+      <div class="ex">
+        <p class="exlab">Exemples d'éléments à corriger :</p>
+        <ul>
+          <li><code class="sel">button[aria-label=&quot;Hide Sommaire&quot;]</code><pre>&lt;button class=&quot;vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button&quot; data-event-name=&quot;pinnable-header.vector-toc.unpin&quot; aria-label=&quot;Hide Sommaire&quot;&gt;masquer&lt;/button&gt;</pre>
+              <p class="why">Corriger l’un des éléments suivants : 
+  Le texte contenu dans l’élément n’est pas inclus dans l’intitulé accessible</p></li><li><code class="sel">button[aria-label=&quot;Hide Apparence&quot;]</code><pre>&lt;button class=&quot;vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button&quot; data-event-name=&quot;pinnable-header.vector-appearance.unpin&quot; aria-label=&quot;Hide Apparence&quot;&gt;masquer&lt;/button&gt;</pre>
+              <p class="why">Corriger l’un des éléments suivants : 
+  Le texte contenu dans l’élément n’est pas inclus dans l’intitulé accessible</p></li><li><code class="sel">button[aria-label=&quot;Hide Apparence&quot;]</code><pre>&lt;button class=&quot;vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button&quot; data-event-name=&quot;pinnable-header.vector-appearance.unpin&quot; aria-label=&quot;Hide Apparence&quot;&gt;masquer&lt;/button&gt;</pre>
+              <p class="why">Corriger l’un des éléments suivants : 
+  Le texte contenu dans l’élément n’est pas inclus dans l’intitulé accessible</p></li><li><code class="sel">button[aria-label=&quot;Hide Apparence&quot;]</code><pre>&lt;button class=&quot;vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button&quot; data-event-name=&quot;pinnable-header.vector-appearance.unpin&quot; aria-label=&quot;Hide Apparence&quot;&gt;masquer&lt;/button&gt;</pre>
+              <p class="why">Corriger l’un des éléments suivants : 
+  Le texte contenu dans l’élément n’est pas inclus dans l’intitulé accessible</p></li>
+        </ul>
+        
+      </div>
+    </section>
+    <section class="finding">
+      <div class="fhead">
+        <span class="pill" style="background:#ea580c1a;color:#ea580c;border-color:#ea580c55">Majeur</span>
+        <h3>Les éléments doivent avoir un contraste de couleurs suffisant</h3>
+      </div>
+      <p class="fdesc">Vérifier que les contrastes entre le premier plan et l’arrière-plan rencontrent les seuils de contrastes exigés par les WCAG 2 AA</p>
+      <ul class="meta">
+        <li><b>3</b> élément(s) concerné(s) sur <b>2</b> page(s)</li>
+        <li>Critère WCAG : <b>1.4.3</b></li>
+        <li>Critère RGAA indicatif : <b>3.2 / 3.3</b></li>
+        <li>Règle technique : <code>color-contrast</code></li>
+      </ul>
+      <div class="ex">
+        <p class="exlab">Exemples d'éléments à corriger :</p>
+        <ul>
+          <li><code class="sel">a[href=&quot;javascript:&quot;]</code><pre>&lt;a href=&quot;javascript:&quot;&gt;[masquer]&lt;/a&gt;</pre>
+              <p class="why">Corriger l’un des éléments suivants : 
+  L’élément a un contraste de couleurs insuffisant de 3.48 (couleur d’avant plan : #3366cc, couleur d’arrière plan : #ccccff, taille de police : 9.6pt (12.816px), graisse : normal). Contraste de couleur attendu : 4.5:1</p></li><li><code class="sel">.exclusion-notice</code><pre>&lt;p class=&quot;exclusion-notice vector-feature-custom-font-size-exclusion-notice&quot;&gt;Cette page utilise toujours une petite taille de police&lt;/p&gt;</pre>
+              <p class="why">Corriger l’un des éléments suivants : 
+  L’élément a un contraste de couleurs insuffisant de 2.37 (couleur d’avant plan : #a2a9b1, couleur d’arrière plan : #ffffff, taille de police : 10.5pt (14px), graisse : normal). Contraste de couleur attendu : 4.5:1</p></li><li><code class="sel">.mw-selflink &gt; .barre-coloree-titre</code><pre>&lt;span class=&quot;barre-coloree-titre&quot; style=&quot;color: 
+#FFF;&quot;&gt;Accueil des portails&lt;/span&gt;</pre>
+              <p class="why">Corriger l’un des éléments suivants : 
+  L’élément a un contraste de couleurs insuffisant de 3.54 (couleur d’avant plan : #ffffff, couleur d’arrière plan : #888888, taille de police : 10.5pt (14px), graisse : bold). Contraste de couleur attendu : 4.5:1</p></li>
+        </ul>
+        
+      </div>
+    </section>
+
+  <h2 class="sec">Critères à vérifier manuellement</h2>
+  <p class="sub" style="margin-bottom:12px">
+    Ces critères ne peuvent pas être conclus par un outil. Ils doivent être contrôlés par un auditeur.
+  </p>
+  <table>
+    <thead><tr><th>Thème RGAA</th><th>Critères</th><th>Pourquoi ce n'est pas automatisable</th></tr></thead>
+    <tbody><tr><td><b>Images</b></td><td>1.2, 1.3, 1.6, 1.8</td><td>pertinence des alternatives textuelles et des descriptions détaillées</td></tr><tr><td><b>Cadres</b></td><td>2.2</td><td>pertinence du titre de cadre</td></tr><tr><td><b>Couleurs</b></td><td>3.1, 3.3</td><td>information donnée par la couleur seule, contrastes des composants d'interface</td></tr><tr><td><b>Multimédia</b></td><td>4.1 à 4.13</td><td>sous-titres, audiodescription, transcription — non testables automatiquement</td></tr><tr><td><b>Tableaux</b></td><td>5.6, 5.8</td><td>pertinence du résumé et de la structure complexe</td></tr><tr><td><b>Liens</b></td><td>6.1, 6.2</td><td>pertinence de l'intitulé (le nom accessible est testé, pas sa clarté)</td></tr><tr><td><b>Scripts</b></td><td>7.1 à 7.5</td><td>compatibilité assistance technique, gestion du focus dynamique</td></tr><tr><td><b>Éléments obligatoires</b></td><td>8.1, 8.2, 8.9, 8.10</td><td>validité du code, sémantique du document</td></tr><tr><td><b>Structuration</b></td><td>9.2, 9.4</td><td>pertinence de la structure du document</td></tr><tr><td><b>Présentation</b></td><td>10.1 à 10.14</td><td>information sans CSS, ordre de lecture, redimensionnement</td></tr><tr><td><b>Formulaires</b></td><td>11.1 à 11.13</td><td>pertinence des étiquettes, aide à la saisie, contrôle des erreurs</td></tr><tr><td><b>Navigation</b></td><td>12.1 à 12.11</td><td>ordre de tabulation réel, liens d'évitement, cohérence de navigation</td></tr><tr><td><b>Consultation</b></td><td>13.1 à 13.12</td><td>maîtrise des changements de contexte, délais, ouverture de fenêtres</td></tr></tbody>
+  </table>
+
+  <h2 class="sec">Pages testées</h2>
+  <table>
+    <thead><tr><th>URL</th><th>HTTP</th><th>État</th><th>Éléments</th><th>Capture</th></tr></thead>
+    <tbody><tr>
+        <td class="url">https://fr.wikipedia.org/wiki/Accessibilit%C3%A9_du_web</td>
+        <td>200</td>
+        <td><span class="badge" style="color:#dc2626;border-color:#dc262655;background:#dc262612">À corriger en priorité</span></td>
+        <td>13</td>
+        <td><a href="page-01.png" target="_blank">voir</a></td>
+      </tr><tr>
+        <td class="url">https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal</td>
+        <td>200</td>
+        <td><span class="badge" style="color:#dc2626;border-color:#dc262655;background:#dc262612">À corriger en priorité</span></td>
+        <td>1</td>
+        <td><a href="page-02.png" target="_blank">voir</a></td>
+      </tr><tr>
+        <td class="url">https://fr.wikipedia.org/wiki/Portail:Accueil</td>
+        <td>200</td>
+        <td><span class="badge" style="color:#dc2626;border-color:#dc262655;background:#dc262612">À corriger en priorité</span></td>
+        <td>3</td>
+        <td><a href="page-03.png" target="_blank">voir</a></td>
+      </tr></tbody>
+  </table>
+
+  
+
+  <footer>
+    Pré-audit généré par <b>preaudit</b> le 07 novembre 2026 pour le compte de Agence Démo ·
+    Moteur axe-core 4.14 · Référentiel RGAA 4.1 / WCAG 2.1 A-AA.
+    Ce rapport décrit l'état du site à la date du test ; il ne préjuge pas des évolutions ultérieures.
+    La correspondance avec les critères RGAA est indicative et doit être validée par un auditeur.
+  </footer>
+</div>
+</body>
+</html>
